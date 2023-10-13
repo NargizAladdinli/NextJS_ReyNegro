@@ -1,0 +1,34 @@
+@use '../../../scss/partials/mixin' as mixin;
+@use '../../../scss/partials/varaible' as var;
+@import "../../../scss/partials/extend";
+
+.header{
+    padding: 20px 0;
+    .flexin{
+        @include mixin.flex($j_content:space-around, $a_items:center);
+        .logo{
+            h3{
+                @include mixin.text($t_transform:uppercase,$f_size:var.$logosize);
+                @extend %_gradientclr;
+            }
+        }
+        .menu{
+            .menulist{
+                @include mixin.flex($gap:50px,$a_items:center);
+                li{
+                    .nonactive{
+                        @include mixin.text($colrs:var.$linkclr,$f_size:var.$linsize,$f_style:normal,$l_heit:27.3px,$f_weight:var.$weight_400);
+                        transition: all 0.3s ease-in-out;
+                        &:hover{
+                            @extend %_gradientclr;
+                        }
+                    }
+                    .active{
+                        @include mixin.text($colrs:var.$linkclr,$f_size:var.$linsize,$f_style:normal,$l_heit:27.3px,$f_weight:var.$weight_400);
+                        @extend %_gradientclr;
+                    }
+                }
+            }
+        }
+    }
+}
