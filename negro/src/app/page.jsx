@@ -1,11 +1,10 @@
-import Image from 'next/image'
-// import styles from './page.module.css'
+import Ground from "@/components/home/background/Gorund";
+
 
 export default function Home() {
   return (
     <>
-    <section>
-    </section>
+    <Ground/>
     </>
   )
 }

@@ -1,12 +1,10 @@
 'use client'
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import style from './_header.module.scss';
 import Link from 'next/link';
 
 export default function Header() {
-  const router = useRouter();
-  const current = router.pathname;
-  console.log(router);
+  const router = usePathname();
   return (
     <header className={style.header}>
         <div className="container">
@@ -18,13 +16,13 @@ export default function Header() {
                   {/* use Router problems */}
                   <ul className={style.menulist}>
                     <li>
-                      <Link href="/" className={`${current} === '/' ? ${style.active} : ${style.nonactive}` }>Главная</Link>
+                      <Link href="/" className={`${router === '/' ? style.active : style.nonactive}` }>Главная</Link>
                     </li>
                     <li>
-                      <Link href="#"  className={`${current} === '/' ? ${style.active} : ${style.nonactive}`  }>Наш товар</Link>
+                      <Link href="/about"  className={`${router === '/about' ? style.active : style.nonactive}`  }>Наш товар</Link>
                     </li>
                     <li>
-                      <Link href="#"  className={`${current} === '/' ? ${style.active} : ${style.nonactive}`  }>Получить прайс</Link>
+                      <Link href="/blog"  className={`${router === '/blog' ? style.active : style.nonactive}`  }>Получить прайс</Link>
                     </li>
                   </ul>
                 </nav>
